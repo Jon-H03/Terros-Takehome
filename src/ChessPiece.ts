@@ -20,3 +20,29 @@ export class ChessPiece {
     }
 }
 
+export class Pawn extends ChessPiece {
+    constructor(position: Position, color: "white" | "black") {
+        super("Pawn", position, color);
+    }
+
+    isValidMove(newPosition: Position): boolean {
+        const direction = this.color === "white" ? 1 : -1;
+        return (
+            newPosition.col === this.position.col &&
+            newPosition.row === this.position.row + direction
+        );
+    }
+}
+
+export class Bishop extends ChessPiece {
+    constructor(position: Position, color: "white" | "black") {
+        super("Bishop", position, color)
+    }
+
+    isValidMove(newPosition: Position): boolean {
+        const rowDiff = Math.abs(newPosition.row - this.position.row);
+        const colDiff = Math.abs(newPosition.col - this.position.col);
+
+        return rowDiff === colDiff;
+    }
+}
