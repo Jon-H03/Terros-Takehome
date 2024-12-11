@@ -9,6 +9,7 @@ import {
   King,
 } from "./ChessPiece";
 
+
 export class ChessBoard {
   private board: (ChessPiece | null)[][];
 
@@ -43,7 +44,7 @@ export class ChessBoard {
     ];
 
     // Initialize black pieces
-    board[0] = [
+    board[7] = [
       new Rook({ row: 7, col: 0 }, "black"),
       new Knight({ row: 7, col: 1 }, "black"),
       new Bishop({ row: 7, col: 2 }, "black"),
