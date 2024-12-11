@@ -57,4 +57,17 @@ export class ChessBoard {
     return board;
   }
 
+  getPieceAt(position: Position): ChessPiece | null {
+    return this.board[position.row][position.col];
+  }
+
+  setPieceAt(position: Position, piece: ChessPiece | null): void {
+    this.board[position.row][position.col] = piece;
+  }
+
+  printBoard(): void {
+    this.board.forEach((row) => {
+      console.log(row.map((piece) => (piece ? piece.name[0] : ".")).join(" "));
+    });
+  }
 }
