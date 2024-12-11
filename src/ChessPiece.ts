@@ -3,7 +3,7 @@ export type Position = {
   col: number;
 };
 
-export class ChessPiece {
+export abstract class ChessPiece {
   name: string;
   position: Position;
   color: "white" | "black";
@@ -13,6 +13,8 @@ export class ChessPiece {
     this.position = position;
     this.color = color;
   }
+
+  abstract isValidMove(newPosition: Position): boolean;
 
   move(newPosition: Position): void {
     this.position = newPosition;
