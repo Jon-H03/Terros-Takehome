@@ -46,3 +46,28 @@ export class Bishop extends ChessPiece {
         return rowDiff === colDiff;
     }
 }
+
+export class Knight extends ChessPiece {
+    constructor(position: Position, color: "white" | "black") {
+        super("Knight", position, color)
+    }
+
+    isValidMove(newPosition: Position): boolean {
+        const rowDiff = Math.abs(newPosition.row - this.position.row)
+        const colDiff = Math.abs(newPosition.col - this.position.col);
+        return (rowDiff === 2 && colDiff === 1) || (rowDiff === 1 && colDiff === 2)
+    }
+}
+
+export class Rook extends ChessPiece {
+    constructor(position: Position, color: "white" | "black") {
+        super("Rook", position, color)
+    }
+
+    isValidMove(newPosition: Position): boolean {
+        const rowDiff = Math.abs(newPosition.row - this.position.row)
+        const colDiff = Math.abs(newPosition.col - this.position.col);
+        return (rowDiff === 0 && colDiff !== 0) || (rowDiff !== 0 && colDiff === 0) 
+    }
+}
+
